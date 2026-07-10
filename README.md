@@ -4,10 +4,6 @@ Portafolio personal estilo **MSN Messenger 7.5 + Windows XP**, con ventanas
 draggables, contactos, chats secuenciales por proyecto, juegos clásicos
 (Buscaminas y Tetris) y una mini-demo interactiva del **ERP CANARYTEX**.
 
-> Hecho con nostalgia por un agente + Alejandro. 🟦
-
-## ✨ Características
-
 - **Escritorio Windows XP** con barra de tareas, reloj y menú Inicio.
 - **Ventanas estilo MSN**: arrastrables, redimensionables, minimizar/maximizar/cerrar, z-index y cascada.
 - **Chats por proyecto**: mensajes automáticos con efecto de escritura (typing) y respuestas secuenciales.
@@ -22,13 +18,6 @@ draggables, contactos, chats secuenciales por proyecto, juegos clásicos
 - **SEO + PWA mínimo**: meta Open Graph, manifest, favicon SVG, theme-color.
 - **Responsive** hasta 480px.
 
-## 🚀 Cómo usarlo
-
-Es un sitio 100% estático. Abrí `index.html` en tu navegador (o subilo a
-GitHub Pages / cualquier hosting estático).
-
-Para desarrollo local con autorecarga, podés usar VS Code + extensión 'Live Server'
-o:
 
 ```powershell
 npx serve .
