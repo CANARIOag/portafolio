@@ -71,16 +71,16 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ====================================================
        SETUP GENERAL
        ==================================================== */
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => Array.from(document.querySelectorAll(sel));
+    const desktop = $('#desktop') || document.body;
+
     const contacts = Array.from(document.querySelectorAll('.contact'));
     const chatWindows = Array.from(document.querySelectorAll('.chat-window'));
-    const desktop = $('#desktop') || document.body;
     const minimizedArea = $('#minimized-area');
     let cascade = { top: 80, left: 300 };
     let zIndexCounter = 1000;
     let activeWin = null;
-
-    const $ = sel => document.querySelector(sel);
-    const $$ = sel => Array.from(document.querySelectorAll(sel));
 
     function bringToFront(win){
       zIndexCounter++;
@@ -481,7 +481,10 @@ document.addEventListener('DOMContentLoaded', () => {
     startMenu?.addEventListener('click', e => {
       const item = e.target.closest('.start-item'); if(!item) return;
       const action = item.dataset.action;
-      if(action === 'open-cv') window.open('assets/cv/AlejandroGabbaCV.pdf', '_blank');
+      if(action === 'open-cv'){
+        const cvPath = item.dataset.cv || 'assets/cv/Alejandro_Gabba_CV.pdf';
+        window.open(cvPath, '_blank');
+      }
       else if(action === 'open-github') window.open('https://github.com/CANARIOag', '_blank');
       else if(action === 'open-erp') openChat('chat-sistemaempresas');
       else if(action === 'toggle-sound') toggleThemeSound(item);
@@ -555,7 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
       area.innerHTML = `
         <strong>Explorador de archivos</strong>
         <ul>
-          <li><a href="assets/cv/AlejandroGabbaCV.pdf" target="_blank" rel="noopener noreferrer">📄 CV - AlejandroGabbaCV.pdf</a></li>
+          <li><a href="assets/cv/Alejandro_Gabba_CV.pdf" target="_blank" rel="noopener noreferrer">📄 CV - Alejandro_Gabba_CV.pdf</a></li>
           <li><a href="assets/img/profile.jpg" target="_blank" rel="noopener noreferrer">🖼️ profile.jpg</a></li>
           <li><a href="assets/img/msn-icon.png" target="_blank" rel="noopener noreferrer">🖼️ msn-icon.png</a></li>
           <li><a href="https://github.com/CANARIOag" target="_blank" rel="noopener noreferrer">🐙 GitHub: CANARIOag</a></li>
