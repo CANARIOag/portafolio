@@ -1,0 +1,18 @@
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
+
+# Node/dev local
+node_modules/
+*.log
+
+# builds
+dist/
+build/
+
+# No subir backups ni venv si se copia algo por error
+*.zip
+venv/
+__pycache__/

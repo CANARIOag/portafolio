@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#1f57a0" />
+  <meta name="color-scheme" content="light" />
+  <meta name="description" content="Portafolio de Alejandro Gabba — Desarrollador Full Stack. Estilo MSN/Windows XP con proyectos interactivos: E-Commerce, Sistema de Inventario, Juego de Mesa, ERP CANARYTEX y CV." />
+  <meta name="author" content="Alejandro Gabba" />
+  <meta name="keywords" content="Alejandro Gabba, portafolio, full stack, Python, FastAPI, PHP, JavaScript, ERP, CANARYTEX, MSN, Windows XP" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Portafolio MSN — Alejandro Gabba" />
+  <meta property="og:description" content="Portafolio estilo MSN/Windows XP con proyectos y demos interactivas." />
+  <meta property="og:locale" content="es_AR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portafolio MSN — Alejandro Gabba" />
+  <meta name="twitter:description" content="Portafolio estilo MSN/Windows XP con proyectos y demos interactivas." />
+
+  <title>Portafolio MSN — Alejandro Gabba</title>
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/img/favicon.svg" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <noscript>
+    <div class="noscript-warning">
+      Este sitio requiere JavaScript para funcionar correctamente. Habilitalo en tu navegador.
+    </div>
+  </noscript>
+
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+  <!-- ===================== DESKTOP ===================== -->
+  <div class="desktop" id="desktop" role="application" aria-label="Escritorio estilo MSN">
+
+    <!-- ===================== MAIN MSN WINDOW (CONTACTS) ===================== -->
+    <div class="msn-window main-window open" id="main" role="region" aria-label="Contactos principales">
+      <div class="title-bar" role="banner">
+        <img class="window-icon" src="assets/img/msn-icon.png" alt="MSN" onerror="this.style.display='none'">
+        <span class="title-text">Alejandro (Conectado)</span>
+        <div class="window-controls">
+          <button type="button" class="minimize main-minimize" title="Minimizar" aria-label="Minimizar ventana principal">▁</button>
+          <button type="button" class="close-window main-close" title="Cerrar" aria-label="Cerrar ventana principal">✖</button>
+        </div>
+      </div>
+
+      <div class="menu-bar" role="navigation">
+        <span role="menuitem" tabindex="0">Archivo</span>
+        <span role="menuitem" tabindex="0">Contactos</span>
+        <span role="menuitem" tabindex="0">Herramientas</span>
+        <span role="menuitem" tabindex="0">Ayuda</span>
+      </div>
+
+      <div class="status-bar" role="status" aria-live="polite">
+        <img src="assets/img/profile.jpg" class="avatar" alt="Foto de Alejandro" onerror="this.style.display='none'">
+        <div class="status-info">
+          <strong>Alejandro Gabba</strong>
+          <span class="status-message">Full Stack · Python · PHP · JS</span>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <input id="contact-search" type="search" placeholder="Buscar contactos... (Ctrl+K)" aria-label="Buscar contactos">
+      </div>
+
+      <div class="contact-list" role="list">
+        <div class="contact-group">Proyectos</div>
+
+        <div class="contact" role="listitem" data-chat="chat-ecommerce" tabindex="0" data-unread="false" aria-label="Proyecto E-Commerce">
+          <img src="assets/img/user-online.png" class="contact-icon" alt="" loading="lazy">
+          <span>E-Commerce (PHP / SQL)</span>
+        </div>
+
+        <div class="contact" role="listitem" data-chat="chat-inventario" tabindex="0" data-unread="false" aria-label="Sistema de Inventario">
+          <img src="assets/img/user-online.png" class="contact-icon" alt="" loading="lazy">
+          <span>Sistema de Inventario (Python)</span>
+        </div>
+
+        <div class="contact" role="listitem" data-chat="chat-juego" tabindex="0" data-unread="false" aria-label="Juego de Mesa">
+          <img src="assets/img/user-online.png" class="contact-icon" alt="" loading="lazy">
+          <span>Juego de Mesa (JS / DB)</span>
+        </div>
+
+        <div class="contact" role="listitem" data-chat="chat-sistemaempresas" tabindex="0" data-unread="false" aria-label="ERP CANARYTEX">
+          <img src="assets/img/user-online.png" class="contact-icon" alt="" loading="lazy">
+          <span>ERP CANARYTEX (FastAPI)</span>
+        </div>
+
+        <div class="contact-group">Sobre mí</div>
+
+        <div class="contact" role="listitem" data-chat="chat-sobremi" tabindex="0" data-unread="false" aria-label="Sobre mí y CV">
+          <img src="assets/img/user-away.png" class="contact-icon" alt="" loading="lazy">
+          <span>Sobre mí / CV</span>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        <button type="button" class="add-contact">Agregar contacto...</button>
+      </div>
+    </div>
+    <!-- /main -->
+
+    <!-- ===================== CHAT WINDOWS ===================== -->
+
+    <!-- CHAT - E-COMMERCE -->
+    <div class="msn-window chat-window" id="chat-ecommerce" data-inited="false" style="display:none;" role="dialog" aria-label="Chat del proyecto E-Commerce">
+      <div class="title-bar">
+        <img class="window-icon" src="assets/img/user-online.png" alt="" loading="lazy">
+        <span class="title-text">Proyecto E-Commerce</span>
+        <div class="window-controls">
+          <button type="button" class="minimize" title="Minimizar">▁</button>
+          <button type="button" class="maximize" title="Maximizar">▢</button>
+          <button type="button" class="close-window" title="Cerrar">✖</button>
+        </div>
+      </div>
+
+      <div class="chat-header">
+        <strong>Proyecto E-Commerce</strong>
+        <div style="margin-left:auto;display:flex;gap:6px;">
+          <button type="button" class="btn-info" title="Info">ℹ️</button>
+        </div>
+      </div>
+
+      <div class="chat-area" aria-live="polite"></div>
+
+      <div class="input-area">
+        <div class="toolbar">
+          <button type="button" class="show-emoticons" title="Emoticonos">😊</button>
+          <button type="button" class="buzz" title="Zumbido">Zumbido</button>
+          <div style="margin-left:6px;display:flex;gap:4px;">
+            <button type="button" class="quick-reply" data-reply="¿Podés pasar más detalles?">Más detalles</button>
+          </div>
+        </div>
+
+        <textarea class="message-input" placeholder="Escribí un mensaje... (Enter para enviar)" aria-label="Mensaje"></textarea>
+
+        <div class="send-area">
+          <button type="button" class="send">Enviar</button>
+        </div>
+      </div>
+
+      <div class="emoticons-panel" style="display:none;">
+        <button class="emoticon">🙂</button><button class="emoticon">🙁</button><button class="emoticon">😉</button>
+        <button class="emoticon">😀</button><button class="emoticon">😛</button><button class="emoticon">😮</button>
+        <button class="emoticon">😎</button><button class="emoticon">😢</button><button class="emoticon">😖</button>
+        <button class="emoticon">👍</button><button class="emoticon">👎</button><button class="emoticon">❤️</button>
+        <button class="emoticon">💖</button><button class="emoticon">🔥</button><button class="emoticon">🎉</button>
+        <button class="emoticon">🎂</button><button class="emoticon">☕</button><button class="emoticon">📷</button>
+      </div>
+    </div>
+
+    <!-- CHAT - INVENTARIO -->
+    <div class="msn-window chat-window" id="chat-inventario" data-inited="false" style="display:none;" role="dialog" aria-label="Chat del Sistema de Inventario">
+      <div class="title-bar">
+        <img class="window-icon" src="assets/img/user-online.png" alt="" loading="lazy">
+        <span class="title-text">Sistema de Inventario</span>
+        <div class="window-controls">
+          <button type="button" class="minimize" title="Minimizar">▁</button>
+          <button type="button" class="maximize" title="Maximizar">▢</button>
+          <button type="button" class="close-window" title="Cerrar">✖</button>
+        </div>
+      </div>
+
+      <div class="chat-area"></div>
+
+      <div class="input-area">
+        <div class="toolbar">
+          <button type="button" class="show-emoticons">😊</button>
+          <button type="button" class="buzz">Zumbido</button>
+        </div>
+        <textarea class="message-input" placeholder="Escribí un mensaje..." aria-label="Mensaje"></textarea>
+        <div class="send-area"><button type="button" class="send">Enviar</button></div>
+      </div>
+
+      <div class="emoticons-panel" style="display:none;">
+        <button class="emoticon">🙂</button><button class="emoticon">😀</button><button class="emoticon">👍</button>
+        <button class="emoticon">❤️</button><button class="emoticon">☕</button>
+      </div>
+    </div>
+
+    <!-- CHAT - JUEGO -->
+    <div class="msn-window chat-window" id="chat-juego" data-inited="false" style="display:none;" role="dialog" aria-label="Chat del Juego de Mesa">
+      <div class="title-bar">
+        <img class="window-icon" src="assets/img/user-online.png" alt="" loading="lazy">
+        <span class="title-text">Juego de Mesa</span>
+        <div class="window-controls">
+          <button type="button" class="minimize" title="Minimizar">▁</button>
+          <button type="button" class="maximize" title="Maximizar">▢</button>
+          <button type="button" class="close-window" title="Cerrar">✖</button>
+        </div>
+      </div>
+
+      <div class="chat-area"></div>
+
+      <div class="input-area">
+        <div class="toolbar">
+          <button type="button" class="show-emoticons">😊</button>
+          <button type="button" class="buzz">Zumbido</button>
+        </div>
+        <textarea class="message-input" placeholder="Escribí un mensaje..." aria-label="Mensaje"></textarea>
+        <div class="send-area"><button type="button" class="send">Enviar</button></div>
+      </div>
+
+      <div class="emoticons-panel" style="display:none;">
+        <button class="emoticon">😀</button><button class="emoticon">😛</button><button class="emoticon">😮</button>
+        <button class="emoticon">🎵</button><button class="emoticon">🍺</button>
+      </div>
+    </div>
+
+    <!-- CHAT - SISTEMA EMPRESAS (CANARYTEX ERP) -->
+    <div class="msn-window chat-window chat-window--wide" id="chat-sistemaempresas" data-inited="false" style="display:none;" role="dialog" aria-label="Chat del ERP CANARYTEX">
+      <div class="title-bar">
+        <img class="window-icon" src="assets/img/user-online.png" alt="" loading="lazy">
+        <span class="title-text">ERP CANARYTEX</span>
+        <div class="window-controls">
+          <button type="button" class="minimize" title="Minimizar">▁</button>
+          <button type="button" class="maximize" title="Maximizar">▢</button>
+          <button type="button" class="close-window" title="Cerrar">✖</button>
+        </div>
+      </div>
+
+      <div class="chat-header chat-header--erp">
+        <strong>ERP CANARYTEX · Sistema de Gestión Empresarial</strong>
+        <span class="erp-badge">FastAPI · PostgreSQL · WhatsApp</span>
+      </div>
+
+      <div class="chat-area chat-area--erp" aria-live="polite"></div>
+
+      <!-- MINI-DEMO INTERACTIVA DEL ERP -->
+      <div class="erp-demo" aria-label="Demo interactiva del ERP">
+        <div class="erp-demo-tabs" role="tablist">
+          <button class="erp-tab active" data-erp-tab="stock" role="tab" aria-selected="true" type="button">Inventario</button>
+          <button class="erp-tab" data-erp-tab="clientes" role="tab" aria-selected="false" type="button">Clientes</button>
+          <button class="erp-tab" data-erp-tab="cc" role="tab" aria-selected="false" type="button">Cta. Corriente</button>
+          <button class="erp-tab" data-erp-tab="stats" role="tab" aria-selected="false" type="button">Stats</button>
+        </div>
+        <div class="erp-demo-body" id="erp-panel"></div>
+      </div>
+
+      <div class="input-area">
+        <div class="toolbar">
+          <button type="button" class="show-emoticons">😊</button>
+          <button type="button" class="buzz">Zumbido</button>
+        </div>
+        <textarea class="message-input" placeholder="Escribí un mensaje..." aria-label="Mensaje"></textarea>
+        <div class="send-area"><button type="button" class="send">Enviar</button></div>
+      </div>
+
+      <div class="emoticons-panel" style="display:none;">
+        <button class="emoticon">😀</button><button class="emoticon">📦</button><button class="emoticon">🧵</button>
+        <button class="emoticon">📊</button><button class="emoticon">💰</button><button class="emoticon">🔥</button>
+      </div>
+    </div>
+
+    <!-- CHAT - SOBRE MI -->
+    <div class="msn-window chat-window" id="chat-sobremi" data-inited="false" style="display:none;" role="dialog" aria-label="Sobre mí y CV">
+      <div class="title-bar">
+        <img class="window-icon" src="assets/img/user-away.png" alt="" loading="lazy">
+        <span class="title-text">Sobre mí</span>
+        <div class="window-controls">
+          <button type="button" class="minimize" title="Minimizar">▁</button>
+          <button type="button" class="maximize" title="Maximizar">▢</button>
+          <button type="button" class="close-window" title="Cerrar">✖</button>
+        </div>
+      </div>
+
+      <div class="chat-area">
+        <div class="message project">
+          ¡Hola! Soy Alejandro Gabba, desarrollador Full Stack.<br><br>
+          Especialista en <strong>Python</strong>, <strong>FastAPI</strong>, <strong>PHP</strong> y <strong>JavaScript</strong>.<br>
+          Trabajo en sistemas empresariales (ERP), e-commerce y herramientas a medida.<br><br>
+          <a class="cv-link" href="assets/cv/AlejandroGabbaCV.pdf" target="_blank" rel="noopener noreferrer">📄 Descargar CV (PDF)</a><br>
+          <a class="cv-link" href="https://github.com/CANARIOag" target="_blank" rel="noopener noreferrer">🐙 Mi GitHub</a>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <textarea class="message-input" placeholder="Escribí un mensaje..." aria-label="Mensaje"></textarea>
+        <div class="send-area"><button type="button" class="send">Enviar</button></div>
+      </div>
+
+      <div class="emoticons-panel" style="display:none;">
+        <button class="emoticon">🙂</button><button class="emoticon">❤️</button><button class="emoticon">☕</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===================== TASKBAR ===================== -->
+  <div id="taskbar">
+    <div class="taskbar-left">
+      <button id="start-button" aria-haspopup="true" aria-expanded="false" aria-controls="start-menu" type="button">
+        <img src="assets/img/windows-flag.png" class="start-flag" alt="" onerror="this.style.display='none'"> <span>Inicio</span>
+      </button>
+      <div id="quick-launch">
+        <button class="ql-btn" title="Mostrar Escritorio" aria-label="Mostrar Escritorio" type="button" data-action="show-desktop">▢</button>
+        <button class="ql-btn" title="Explorador" aria-label="Abrir explorador" type="button" data-action="open-explorer">📁</button>
+        <button class="ql-btn" title="Abrir carpeta de assets" aria-label="Abrir carpeta" type="button" data-action="open-folder">📂</button>
+        <button class="ql-btn" title="Buscaminas" aria-label="Abrir Buscaminas" type="button" data-action="open-minesweeper">💣</button>
+        <button class="ql-btn" title="Tetris" aria-label="Abrir Tetris" type="button" data-action="open-tetris">🔳</button>
+      </div>
+      <div id="minimized-area" aria-live="polite"></div>
+    </div>
+
+    <div class="taskbar-right">
+      <div id="tray-icons">
+        <span class="tray-item">🖥️</span>
+        <span class="tray-item">🔊</span>
+        <span class="tray-item">🌐</span>
+      </div>
+      <div id="taskbar-clock"></div>
+    </div>
+
+    <div id="start-menu" class="start-menu" role="menu">
+      <div class="start-menu-header">
+        <img src="assets/img/profile.jpg" class="start-avatar" alt="Alejandro" onerror="this.style.display='none'">
+        <div>
+          <div class="start-name">Alejandro Gabba</div>
+          <div class="start-sub">Portafolio MSN</div>
+        </div>
+      </div>
+      <ul>
+        <li><button class="start-item" data-action="open-cv" type="button">📄 Descargar CV</button></li>
+        <li><button class="start-item" data-action="open-github" type="button">🐙 GitHub</button></li>
+        <li><button class="start-item" data-action="open-erp" type="button">📦 Abrir ERP CANARYTEX</button></li>
+        <li><button class="start-item" data-action="toggle-sound" type="button">🔊 Activar música</button></li>
+      </ul>
+      <div class="start-footer">MSN 7.5 + Windows XP · Hecho con nostalgia</div>
+    </div>
+  </div>
+
+  <!-- ===================== AUDIOS ===================== -->
+  <audio id="msn-theme" loop preload="auto" src="assets/sounds/msn-messenger.mp3"></audio>
+  <audio id="msn-nudge" preload="auto" src="assets/sounds/msn-nudge.mp3"></audio>
+
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
+</body>
+</html>

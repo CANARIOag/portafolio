@@ -1,0 +1,13 @@
+{
+  "name": "Portafolio MSN — Alejandro Gabba",
+  "short_name": "Portafolio",
+  "description": "Portafolio de Alejandro Gabba, desarrollador Full Stack",
+  "lang": "es-AR",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#1f57a0",
+  "background_color": "#0a2d6e",
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
