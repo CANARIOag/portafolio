@@ -5,18 +5,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#1f57a0" />
   <meta name="color-scheme" content="light" />
-  <meta name="description" content="Portafolio de Alejandro Gabba — Desarrollador Full Stack. Estilo MSN/Windows XP con proyectos interactivos: E-Commerce, Sistema de Inventario, Juego de Mesa, ERP CANARYTEX y CV." />
+  <meta name="description" content="Portafolio de Alejandro Gabba — Desarrollador Full Stack. Estilo MSN/Windows XP con pantalla de boot, login y proyectos interactivos: ERP CANARYTEX, E-Commerce, Inventario y más." />
   <meta name="author" content="Alejandro Gabba" />
   <meta name="keywords" content="Alejandro Gabba, portafolio, full stack, Python, FastAPI, PHP, JavaScript, ERP, CANARYTEX, MSN, Windows XP" />
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Portafolio MSN — Alejandro Gabba" />
-  <meta property="og:description" content="Portafolio estilo MSN/Windows XP con proyectos y demos interactivas." />
+  <meta property="og:description" content="Portafolio estilo MSN/Windows XP con boot, login y proyectos interactivos." />
   <meta property="og:locale" content="es_AR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Portafolio MSN — Alejandro Gabba" />
-  <meta name="twitter:description" content="Portafolio estilo MSN/Windows XP con proyectos y demos interactivas." />
+  <meta name="twitter:description" content="Portafolio estilo MSN/Windows XP con boot, login y proyectos interactivos." />
 
   <title>Portafolio MSN — Alejandro Gabba</title>
 
@@ -26,12 +25,77 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- ===================== BOOT SCREEN (Windows XP) ===================== -->
+  <div id="boot-screen" class="boot-screen">
+    <div class="boot-logo">
+      <div class="boot-flag">
+        <span class="r"></span><span class="g"></span><span class="b"></span><span class="y"></span>
+      </div>
+      <div class="boot-title">Microsoft<sup>®</sup> Windows<sup>®</sup> XP</div>
+      <div class="boot-subtitle">Professional</div>
+    </div>
+    <div class="boot-loader">
+      <div class="boot-loader-bar">
+        <div class="boot-loader-blocks">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+    <div class="boot-footer">Copyright © Microsoft Corporation · Parodia / portafolio personal</div>
+  </div>
+
+  <!-- ===================== LOGIN SCREEN (MSN) ===================== -->
+  <div id="login-screen" class="login-screen" style="display:none;">
+    <div class="login-card">
+      <div class="login-header">
+        <img src="assets/img/msn-icon.png" class="login-icon" alt="MSN" onerror="this.style.display='none'">
+        <div>
+          <div class="login-title">Windows Live Messenger</div>
+          <div class="login-version">MSN 7.5 · Parodia nostálgica</div>
+        </div>
+      </div>
+
+      <div class="login-body">
+        <img src="assets/img/profile.jpg" class="login-avatar" alt="Alejandro" onerror="this.style.display='none'">
+        <div class="login-fields">
+          <label class="login-label">Inicio de sesión</label>
+          <input type="text" value="ale_gabba@hotmail.com" class="login-input" aria-label="Usuario" readonly>
+          <label class="login-label" for="login-pass">Contraseña</label>
+          <input type="password" id="login-pass" class="login-input" aria-label="Contraseña" placeholder="Cualquier contraseña (o Enter)">
+          <button type="button" id="login-btn" class="login-btn">Iniciar sesión</button>
+          <label class="login-check">
+            <input type="checkbox" checked> Recordarme
+          </label>
+          <a class="login-hint" href="https://github.com/CANARIOag" target="_blank" rel="noopener noreferrer">¿Olvidaste tu contraseña? → es un portafolio, no hace falta 😉</a>
+        </div>
+      </div>
+
+      <div class="login-status">
+        <span class="login-dot"></span> Conectando a los servidores de MSN del 2005...
+      </div>
+
+      <div class="login-footer">
+        <span>Servicio: ● En línea</span>
+        <span>© Alejandro Gabba · Portafolio</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== WELCOME BUBBLE (post-login) ===================== -->
+  <div id="welcome-toast" class="welcome-toast" style="display:none;">
+    <img src="assets/img/msn-icon.png" alt="MSN" onerror="this.style.display='none'">
+    <div>
+      <strong>¡Bienvenido, Alejandro!</strong>
+      <span>Estás conectado. Abrí cualquier contacto para chatear.</span>
+    </div>
+  </div>
+
   <noscript>
     <div class="noscript-warning">
       Este sitio requiere JavaScript para funcionar correctamente. Habilitalo en tu navegador.
     </div>
   </noscript>
-
   <a class="skip-link" href="#main">Saltar al contenido principal</a>
 
   <!-- ===================== DESKTOP ===================== -->
@@ -41,7 +105,7 @@
     <div class="msn-window main-window open" id="main" role="region" aria-label="Contactos principales">
       <div class="title-bar" role="banner">
         <img class="window-icon" src="assets/img/msn-icon.png" alt="MSN" onerror="this.style.display='none'">
-        <span class="title-text">Alejandro (Conectado)</span>
+        <span class="title-text">ale_gabba (Conectado)</span>
         <div class="window-controls">
           <button type="button" class="minimize main-minimize" title="Minimizar" aria-label="Minimizar ventana principal">▁</button>
           <button type="button" class="close-window main-close" title="Cerrar" aria-label="Cerrar ventana principal">✖</button>
@@ -59,7 +123,7 @@
         <img src="assets/img/profile.jpg" class="avatar" alt="Foto de Alejandro" onerror="this.style.display='none'">
         <div class="status-info">
           <strong>Alejandro Gabba</strong>
-          <span class="status-message">Full Stack · Python · PHP · JS</span>
+          <span class="status-message" id="personal-msg">Full Stack · Python · PHP · JS</span>
         </div>
       </div>
 
@@ -96,16 +160,26 @@
           <img src="assets/img/user-away.png" class="contact-icon" alt="" loading="lazy">
           <span>Sobre mí / CV</span>
         </div>
+
+        <div class="contact-group">Juegos</div>
+
+        <div class="contact game-launch" role="listitem" data-action="open-minesweeper" tabindex="0" aria-label="Buscaminas">
+          <img src="assets/img/user-online.png" class="contact-icon" alt="" loading="lazy">
+          <span>💣 Buscaminas</span>
+        </div>
+        <div class="contact game-launch" role="listitem" data-action="open-tetris" tabindex="0" aria-label="Tetris">
+          <img src="assets/img/user-online.png" class="contact-icon" alt="" loading="lazy">
+          <span>🔳 Tetris</span>
+        </div>
       </div>
 
       <div class="footer-bar">
         <button type="button" class="add-contact">Agregar contacto...</button>
+        <span class="footer-online"><span class="online-dot"></span> 4 en línea</span>
       </div>
     </div>
-    <!-- /main -->
 
     <!-- ===================== CHAT WINDOWS ===================== -->
-
     <!-- CHAT - E-COMMERCE -->
     <div class="msn-window chat-window" id="chat-ecommerce" data-inited="false" style="display:none;" role="dialog" aria-label="Chat del proyecto E-Commerce">
       <div class="title-bar">
@@ -117,32 +191,29 @@
           <button type="button" class="close-window" title="Cerrar">✖</button>
         </div>
       </div>
-
       <div class="chat-header">
         <strong>Proyecto E-Commerce</strong>
+        <span class="chat-header-tag">PHP + SQL</span>
         <div style="margin-left:auto;display:flex;gap:6px;">
-          <button type="button" class="btn-info" title="Info">ℹ️</button>
+          <button type="button" title="Info">ℹ️</button>
         </div>
       </div>
-
       <div class="chat-area" aria-live="polite"></div>
-
       <div class="input-area">
         <div class="toolbar">
           <button type="button" class="show-emoticons" title="Emoticonos">😊</button>
           <button type="button" class="buzz" title="Zumbido">Zumbido</button>
           <div style="margin-left:6px;display:flex;gap:4px;">
             <button type="button" class="quick-reply" data-reply="¿Podés pasar más detalles?">Más detalles</button>
+            <button type="button" class="quick-reply" data-reply="¿Usaste algún framework CSS?">Frameworks</button>
           </div>
         </div>
-
-        <textarea class="message-input" placeholder="Escribí un mensaje... (Enter para enviar)" aria-label="Mensaje"></textarea>
-
+        <textarea class="message-input" placeholder="Escribí un mensaje... (Enter para enviar / Shift+Enter para salto de línea)" aria-label="Mensaje"></textarea>
         <div class="send-area">
+          <span class="char-count" id="char-ecommerce"></span>
           <button type="button" class="send">Enviar</button>
         </div>
       </div>
-
       <div class="emoticons-panel" style="display:none;">
         <button class="emoticon">🙂</button><button class="emoticon">🙁</button><button class="emoticon">😉</button>
         <button class="emoticon">😀</button><button class="emoticon">😛</button><button class="emoticon">😮</button>
@@ -164,21 +235,26 @@
           <button type="button" class="close-window" title="Cerrar">✖</button>
         </div>
       </div>
-
+      <div class="chat-header">
+        <strong>Sistema de Inventario y Facturación</strong>
+        <span class="chat-header-tag">Python + Tkinter</span>
+      </div>
       <div class="chat-area"></div>
-
       <div class="input-area">
         <div class="toolbar">
           <button type="button" class="show-emoticons">😊</button>
           <button type="button" class="buzz">Zumbido</button>
+          <div style="margin-left:6px;display:flex;gap:4px;">
+            <button type="button" class="quick-reply" data-reply="seguí">Seguí contando</button>
+            <button type="button" class="quick-reply" data-reply="¿Cómo funciona la trazabilidad?">Trazabilidad</button>
+          </div>
         </div>
-        <textarea class="message-input" placeholder="Escribí un mensaje..." aria-label="Mensaje"></textarea>
+        <textarea class="message-input" placeholder="Escribí 'seguí' para que siga contando..." aria-label="Mensaje"></textarea>
         <div class="send-area"><button type="button" class="send">Enviar</button></div>
       </div>
-
       <div class="emoticons-panel" style="display:none;">
         <button class="emoticon">🙂</button><button class="emoticon">😀</button><button class="emoticon">👍</button>
-        <button class="emoticon">❤️</button><button class="emoticon">☕</button>
+        <button class="emoticon">📦</button><button class="emoticon">🔍</button><button class="emoticon">❤️</button><button class="emoticon">☕</button>
       </div>
     </div>
 
@@ -193,9 +269,11 @@
           <button type="button" class="close-window" title="Cerrar">✖</button>
         </div>
       </div>
-
+      <div class="chat-header">
+        <strong>Juego de Mesa digital</strong>
+        <span class="chat-header-tag">JS + DB</span>
+      </div>
       <div class="chat-area"></div>
-
       <div class="input-area">
         <div class="toolbar">
           <button type="button" class="show-emoticons">😊</button>
@@ -204,10 +282,9 @@
         <textarea class="message-input" placeholder="Escribí un mensaje..." aria-label="Mensaje"></textarea>
         <div class="send-area"><button type="button" class="send">Enviar</button></div>
       </div>
-
       <div class="emoticons-panel" style="display:none;">
         <button class="emoticon">😀</button><button class="emoticon">😛</button><button class="emoticon">😮</button>
-        <button class="emoticon">🎵</button><button class="emoticon">🍺</button>
+        <button class="emoticon">🎲</button><button class="emoticon">🎵</button><button class="emoticon">🍺</button>
       </div>
     </div>
 
@@ -222,34 +299,33 @@
           <button type="button" class="close-window" title="Cerrar">✖</button>
         </div>
       </div>
-
       <div class="chat-header chat-header--erp">
         <strong>ERP CANARYTEX · Sistema de Gestión Empresarial</strong>
         <span class="erp-badge">FastAPI · PostgreSQL · WhatsApp</span>
       </div>
-
       <div class="chat-area chat-area--erp" aria-live="polite"></div>
-
-      <!-- MINI-DEMO INTERACTIVA DEL ERP -->
       <div class="erp-demo" aria-label="Demo interactiva del ERP">
         <div class="erp-demo-tabs" role="tablist">
           <button class="erp-tab active" data-erp-tab="stock" role="tab" aria-selected="true" type="button">Inventario</button>
           <button class="erp-tab" data-erp-tab="clientes" role="tab" aria-selected="false" type="button">Clientes</button>
           <button class="erp-tab" data-erp-tab="cc" role="tab" aria-selected="false" type="button">Cta. Corriente</button>
           <button class="erp-tab" data-erp-tab="stats" role="tab" aria-selected="false" type="button">Stats</button>
+          <button class="erp-tab" data-erp-tab="remito" role="tab" aria-selected="false" type="button">Remito</button>
         </div>
         <div class="erp-demo-body" id="erp-panel"></div>
       </div>
-
       <div class="input-area">
         <div class="toolbar">
           <button type="button" class="show-emoticons">😊</button>
           <button type="button" class="buzz">Zumbido</button>
+          <div style="margin-left:6px;display:flex;gap:4px;">
+            <button type="button" class="quick-reply" data-reply="seguí">Seguí contando</button>
+            <button type="button" class="quick-reply" data-reply="¿Cómo está hecho el backend?">Backend</button>
+          </div>
         </div>
-        <textarea class="message-input" placeholder="Escribí un mensaje..." aria-label="Mensaje"></textarea>
+        <textarea class="message-input" placeholder="Escribí 'seguí' para más info del ERP..." aria-label="Mensaje"></textarea>
         <div class="send-area"><button type="button" class="send">Enviar</button></div>
       </div>
-
       <div class="emoticons-panel" style="display:none;">
         <button class="emoticon">😀</button><button class="emoticon">📦</button><button class="emoticon">🧵</button>
         <button class="emoticon">📊</button><button class="emoticon">💰</button><button class="emoticon">🔥</button>
@@ -267,22 +343,20 @@
           <button type="button" class="close-window" title="Cerrar">✖</button>
         </div>
       </div>
-
       <div class="chat-area">
         <div class="message project">
-          ¡Hola! Soy Alejandro Gabba, desarrollador Full Stack.<br><br>
+          ¡Hola! Soy <strong>Alejandro Gabba</strong>, desarrollador Full Stack desde Argentina 🇦🇷<br><br>
           Especialista en <strong>Python</strong>, <strong>FastAPI</strong>, <strong>PHP</strong> y <strong>JavaScript</strong>.<br>
           Trabajo en sistemas empresariales (ERP), e-commerce y herramientas a medida.<br><br>
+          Me gusta el código prolijo, los sistemas que resuelven problemas reales y los detalles que hacen que el software se sienta vivo.<br><br>
           <a class="cv-link" href="assets/cv/Alejandro_Gabba_CV.pdf" target="_blank" rel="noopener noreferrer">📄 Descargar CV (PDF)</a><br>
           <a class="cv-link" href="https://github.com/CANARIOag" target="_blank" rel="noopener noreferrer">🐙 Mi GitHub</a>
         </div>
       </div>
-
       <div class="input-area">
         <textarea class="message-input" placeholder="Escribí un mensaje..." aria-label="Mensaje"></textarea>
         <div class="send-area"><button type="button" class="send">Enviar</button></div>
       </div>
-
       <div class="emoticons-panel" style="display:none;">
         <button class="emoticon">🙂</button><button class="emoticon">❤️</button><button class="emoticon">☕</button>
       </div>
@@ -305,12 +379,11 @@
       </div>
       <div id="minimized-area" aria-live="polite"></div>
     </div>
-
     <div class="taskbar-right">
       <div id="tray-icons">
-        <span class="tray-item">🖥️</span>
-        <span class="tray-item">🔊</span>
-        <span class="tray-item">🌐</span>
+        <span class="tray-item" title="Pantalla">🖥️</span>
+        <span class="tray-item" title="Volumen" id="tray-volume">🔊</span>
+        <span class="tray-item" title="Red">🌐</span>
       </div>
       <div id="taskbar-clock"></div>
     </div>
@@ -320,24 +393,22 @@
         <img src="assets/img/profile.jpg" class="start-avatar" alt="Alejandro" onerror="this.style.display='none'">
         <div>
           <div class="start-name">Alejandro Gabba</div>
-          <div class="start-sub">Portafolio MSN</div>
+          <div class="start-sub">ale_gabba@hotmail.com</div>
         </div>
       </div>
       <ul>
         <li><button class="start-item" data-action="open-cv" data-cv="assets/cv/Alejandro_Gabba_CV.pdf" type="button">📄 Descargar CV</button></li>
         <li><button class="start-item" data-action="open-github" type="button">🐙 GitHub</button></li>
         <li><button class="start-item" data-action="open-erp" type="button">📦 Abrir ERP CANARYTEX</button></li>
+        <li><button class="start-item" data-action="open-minesweeper" type="button">💣 Buscaminas</button></li>
+        <li><button class="start-item" data-action="open-tetris" type="button">🔳 Tetris</button></li>
         <li><button class="start-item" data-action="toggle-sound" type="button">🔊 Activar música</button></li>
       </ul>
-      <div class="start-footer">MSN 7.5 + Windows XP · Hecho con nostalgia</div>
+      <div class="start-footer">MSN 7.5 + Windows XP · Hecho con nostalgia en 🇦🇷</div>
     </div>
   </div>
 
-  <!-- ===================== AUDIOS ===================== -->
-  <audio id="msn-theme" loop preload="auto" src="assets/sounds/msn-messenger.mp3"></audio>
-  <audio id="msn-nudge" preload="auto" src="assets/sounds/msn-nudge.mp3"></audio>
-
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>

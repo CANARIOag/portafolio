@@ -1,12 +1,75 @@
-// script.js — Portafolio MSN (versión pulida y unificada)
-// Incluye: ventanas (draggable/resizable/min/max/close), chat secuencial,
-// emoticonos, zumbido, mini-demo interactiva del ERP CANARYTEX, juegos
-// (Buscaminas, Tetris), taskbar/start menu, sonidos, accesibilidad.
+// script.js — Portafolio MSN + Windows XP boot/login (versión completa)
+// Incluye: boot XP, login MSN, ventanas (draggable/resizable/min/max/close),
+// chat secuencial, emoticonos, zumbido, mini-demo interactiva del ERP
+// CANARYTEX (con remito), juegos (Buscaminas, Tetris), taskbar/start menu,
+// sonidos, accesibilidad.
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
   try {
-    console.log("%cMSN: listo (pulido v2)", "color:#0066cc;font-weight:700;");
+    console.log("%cMSN: listo (pulido v3 — boot + login)", "color:#0066cc;font-weight:700;");
+
+    /* ====================================================
+       SECUENCIA DE ARRANQUE: boot XP → login MSN → desktop
+       ==================================================== */
+    const bootScreen   = document.getElementById('boot-screen');
+    const loginScreen  = document.getElementById('login-screen');
+    const welcomeToast = document.getElementById('welcome-toast');
+
+    // intenta reproducir un sonido de fondo opcional tras login
+    const audioTheme  = document.getElementById('msn-theme');
+    const audioNudge  = document.getElementById('msn-nudge');
+    function safePlay(audio){
+      if(!audio) return;
+      try{ audio.currentTime = 0; const p = audio.play(); if(p && p.catch) p.catch(()=>{}); }
+      catch(e){}
+    }
+
+    function showLogin(){
+      if(bootScreen) bootScreen.style.display = 'none';
+      if(loginScreen){
+        loginScreen.style.display = 'flex';
+      }
+    }
+    function showDesktop(){
+      if(loginScreen){
+        loginScreen.classList.add('logging-in');
+        setTimeout(() => { loginScreen.style.display = 'none'; }, 500);
+      }
+      // reproducir el sonido del tema (si se permite autoplay)
+      safePlay(audioTheme);
+      // toast de bienvenida
+      if(welcomeToast){
+        welcomeToast.style.display = 'flex';
+        setTimeout(() => { welcomeToast.style.display = 'none'; }, 5500);
+      }
+    }
+
+    // El boot se anima con CSS y se oculta solo a los 3.5s. Nosotros
+    // mostramos el login a los 3.6s por si la animación se interrumpe.
+    let booted = false;
+    function ensureLogin(){
+      if(booted) return; booted = true;
+      showLogin();
+    }
+    if(bootScreen){
+      bootScreen.addEventListener('animationend', e => {
+        if(e.animationName === 'bootFadeOut') ensureLogin();
+      });
+    }
+    setTimeout(ensureLogin, 4000);
+
+    // Login: cualquier contraseña o Enter inicia el desktop
+    const loginBtn  = document.getElementById('login-btn');
+    const loginPass = document.getElementById('login-pass');
+    function doLogin(){
+      // pequeño delay "conectando..."
+      const status = loginScreen?.querySelector('.login-status');
+      if(status){ status.innerHTML = '<span class="login-dot"></span> Verificando credenciales...'; }
+      setTimeout(showDesktop, 700);
+    }
+    loginBtn?.addEventListener('click', e => { e.preventDefault(); doLogin(); });
+    loginPass?.addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); doLogin(); } });
 
     /* ====================================================
        DATOS DE LOS PROYECTOS (mensajes secuenciales)
@@ -57,18 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /* ====================================================
-       AUDIO
-       ==================================================== */
-    const el = id => document.getElementById(id);
-    const audioTheme  = el('msn-theme');
-    const audioNudge  = el('msn-nudge');
-    function safePlay(audio){
-      if(!audio) return;
-      try{ audio.currentTime = 0; const p = audio.play(); if(p && p.catch) p.catch(()=>{}); }
-      catch(e){}
-    }
-
-    /* ====================================================
        SETUP GENERAL
        ==================================================== */
     const $ = sel => document.querySelector(sel);
@@ -94,8 +145,17 @@ document.addEventListener('DOMContentLoaded', () => {
        CLICK EN CONTACTO → abrir chat
        ==================================================== */
     contacts.forEach(c => {
-      c.addEventListener('click', () => openChat(c.dataset.chat));
-      c.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openChat(c.dataset.chat); } });
+      const trigger = () => {
+        const chatId = c.dataset.chat;
+        const action = c.dataset.action;
+        if(chatId) openChat(chatId);
+        else if(action){
+          if(action === 'open-minesweeper') createMinesweeperWindow();
+          else if(action === 'open-tetris') createTetrisWindow();
+        }
+      };
+      c.addEventListener('click', trigger);
+      c.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); trigger(); } });
     });
 
     function openChat(chatId){
@@ -666,6 +726,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="erp-bar"><i style="width:${Math.min(100, s.alertas*20)}%"></i></div></div>
             </div>
             <div class="erp-note">Dashboard del sistema · datos de muestra</div>`;
+        }
+        else if(tab === 'remito'){
+          const re = ERP_DATA.stock.slice(0, 3);
+          const total = re.reduce((a, s) => a + s.m * 450, 0);
+          const fmtMoney = n => "$" + n.toLocaleString("es-AR");
+          panel.innerHTML = `
+            <div class="erp-remito">
+              <h4>REMITO "R-0001-002389" · CANARYTEX</h4>
+              <div class="row"><span><strong>Cliente:</strong> Tintorería del Sur</span><span><strong>Fecha:</strong> 10/07/2026</span></div>
+              <div class="row"><span><strong>CUIT:</strong> 30-12345678-9</span><span><strong>Remito N°:</strong> 2389</span></div>
+              <div class="row"><span><strong>Domicilio:</strong> Av. Caseros 2400, CABA</span><span><strong>Cond. venta:</strong> Cta. Corriente 30 días</span></div>
+              <table>
+                <thead><tr><th>Código</th><th>Artículo</th><th>Color</th><th>Lote</th><th>Cant.</th><th>Unitario</th><th>Subtotal</th></tr></thead>
+                <tbody>
+                  ${re.map((s, i) => `
+                  <tr><td>${1000 + i}</td><td>${s.art}</td><td>${s.color}</td><td>${s.lot}</td>
+                  <td>${s.m} m</td><td>${fmtMoney(450)}</td><td>${fmtMoney(s.m * 450)}</td></tr>`).join('')}
+                </tbody>
+                <tfoot><tr class="remito-total"><td colspan="6" style="text-align:right">TOTAL</td><td>${fmtMoney(total)}</td></tr></tfoot>
+              </table>
+              <div class="remito-terms">El solicitante declara recibir la mercadería conforme. Remito no válido como factura. Generado con Pillow en el ERP.</div>
+            </div>
+            <div class="erp-note">Vista previa de remito generado en el sistema con Pillow</div>`;
         }
       }
       tabs.forEach(t => t.addEventListener('click', () => {
