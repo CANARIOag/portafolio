@@ -470,6 +470,9 @@
 
     makeDraggable(win);
     makeResizable(win);
+
+    // ERP demo
+    if(win.id === 'chat-sistemaempresas') initErpDemo(win);
   }
 
   // ── matching de keywords del bot ───────────────────────────
